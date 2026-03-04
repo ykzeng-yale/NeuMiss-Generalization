@@ -1,0 +1,353 @@
+Haiyang NeuroMiss
+2026-02-24 21:24:36 CST
+34min 56s
+Keywords
+矩阵 best case scenario low degree 体重 身高 linear model 概率 抽象 格式 函数 结构 公式
+Transcript
+Speaker 1 00:02
+OK。你在干嘛？录音。
+
+Speaker 2 00:06
+对，用不着，好，这个首先那个再把这个什么那个 new miss，这个你知道是还记得是什么？
+
+Speaker 1 00:21
+我大概记得。
+
+Speaker 2 00:23
+需要回顾一下吗？
+
+Speaker 1 00:26
+你应该直接讲，我大概能回忆起来。
+
+Speaker 2 00:29
+OK，那就讲吧，声音开大一点。这个 new miss，比方说你这个是所谓是这个叫做高险 Linear model。 with missing data 对吗？它是什么样的？它就是这个 x 是属于这个normal。什么mu？对吧？ x 是这样的，然后 y 等于什么？ x 乘以个什么Beta？加上一个noise。对吧？对。然后，然后它还有一个这个indicator。就叫它o，就这个什么。 0 ~ 1 之间的这个 p 次方吧。 Sigma 是什么？ p by p 的，对吧？然后就是说，然后你的这个任务， regression 的任务就是算这个东西 expectation of y given XO 嘛。对吧？对。给你的数据就是。这个 data 就是一堆这个 x 和 y 的pair， XIY 的pair，这上面什么 sample YID 的吗？然后 x 这个，它所有这个 o 不等于一的 index 都是 missing 的。
+
+Speaker 1 02:47
+行，OK。
+
+Speaker 2 02:47
+对吧？就是。 x i j 等于x，等等，等于 missing if 这个 o i j 等于0。是吧？else，对吧？大概就这样。然后这是有公式的。就这个 regression function 是有公式的。OK。首先这个ok，就是首先这个。 conditional distribution。 conditional distribution 是什么？就是 given 这个， given 一个这个所谓这个XO。然后它的这个 x conditional XO 的 distribution 是。
+
+Speaker 2 04:12
+看一下，叭叭叭叭叭。
+
+Speaker 2 04:41
+我 vs code 去哪了？在哪？cursor。
+
+Speaker 2 05:13
+out agent with computer use。
+
+Speaker 2 05:15
+这个给你，刚才给你说的。对，OK，就是这个 MU 加上 Sigma 帕一坨，然后 z 减 MU 这个一坨是什么？一会儿再说吧，下面这个就是，OK，这个意图是什么？给你介绍一下。不是，就这个，ok，这个 d 就是这个 diagonal Matrix。 diagonal of o 对吧？就是101。
+
+Speaker 1 06:14
+对，都在，对。
+
+Speaker 2 06:15
+就是它这个 diagonal 是一的地方，就标这个i，这个是observer，对吧？然后这个就是 d Sigma d 的 procedural inverse。 procedural inverse。对吧？对。你 given 了这个， given 了XO，它的 x 的 distribution 就是这样的。也是一个 normal distribution。对。OK。OK。等一下啊。喝酒这东西重要吗？这东西需要讲吗？
+
+Speaker 1 07:08
+重要的，对于 AI 状态。
+
+Speaker 2 07:10
+这不重要。
+
+Speaker 1 07:13
+把 line 一下挪了去。
+
+Speaker 2 07:15
+不，你直接看 new miss 那个文章里。对对对。然后所以说这个东西，这个就是这个叫做这个 true regression function f of XO。或者就是 x 吧。就是这个东西是可以写出来的， FX 就基本上就等于你这个就是 conditional mean。OK。这 conditional mean 就等于你这个 conditional mean 乘以这个贝塔嘛。
+
+Speaker 1 07:56
+OK。
+
+Speaker 2 07:56
+就等于这个什么 mu 加 Sigma d z 减去 mu 乘以贝塔。对吧？这个东西是啥？你可能不知道。
+
+Speaker 1 08:20
+OK。
+
+Speaker 2 08:25
+这，这个东西是，这个东西叫 d Sigma， d 这个 proceduralinverse OK。这，这个，首先这个矩阵是啥？
+
+Speaker 2 08:49
+这个矩阵就是你原本这个 Sigma 这个大的矩阵。
+
+Speaker 1 08:53
+你把它提取出来，就。
+
+Speaker 2 08:54
+它所有那些就是这个，比方说IJ，对吧？它等于就相当于它所有的这个没有被 observed 的行和列都被变成 0 了。那就只有 observed 的那个行和列是还是跟原来一样？那然后你，那你就是相当于这个，原来这个就是一个observed，就是一个submatrix。对。是吧？这就是一个submatrix。对。这个submatrix。可以求inverse。
+
+Speaker 1 09:32
+可以，嗯。
+
+Speaker 2 09:32
+对吧？然后你把这个 inverse 放在这个原本这个充满 0 的这个矩阵。就你放在他该放的那位置上。对吧？还行。就相当于就是说最简单例子就是比方说 d 等于什么？这个10。然后你的Sigma、DD， Sigma 就只有变成一个这一个 c 了，其他的都变成 0 了。对吧？对。然后你的这个 procedural inverse 就变成这个 inverse 了，其他就还是0，这个就是 procedural inverse。yes，OK。然后既然说是这样的话，就还有点像是正常的 Matrix 的inverse。对吧？
+
+Speaker 2 10:26
+OK，好，然后这个 procedural inverse。他可以有一个这种类似于这种 series expansion。无穷长什么样来着？
+
+Speaker 2 10:57
+这个ok，等于这个Delta。d，你的KD，然后这个 b 是啥？ i 减 Delta Sigma，对吧？OK，它可以写成这种形式。
+
+Speaker 1 11:23
+OK。
+
+Speaker 2 11:25
+所以说你的这个 FX 可以写成一个这种。就约等于是这个 MU 和 Beta 的先乘出来，再加上这个 summation k 等于 0 到无穷。这个西格玛，这个德尔塔，这个西格玛，这个 DI 减去德尔塔，西格玛在这个 k 次方乘以d，乘以贝塔，差不多这样吧？OK。然后，嗯，OK，现在可以回到正题，什么叫 new miss？你不是等一下乘以另外一个，乘以这个 x 减去没有贝塔，对。这，这个就是什么意思？这里面每一项具体在干嘛？我去看看一下。OK，就。就只看这，可能就只看这第一项和第二项吧。它就等于这个 sigma 乘以d，乘以这个，一个这个矩阵就把它叫做 b 了。这整个矩阵叫做b，是固定的一个矩阵。
+
+Speaker 2 13:22
+Sigma d b d 乘以一个这个什么。乘一个这个x，减去 mu 乘一个这个，再乘一个这个Beta，对吧？就相当于就是说你这个 x 先进去了，然后乘一个d，乘一个 d 是什么意思？就是你所有非 obs 没有被observe，都变成 0 了。然后这个东西再乘一个中间这个b，然后获得一个新的Vector。OK。然后这新的 Vector 它又要乘一下这个d。 i see。就是它所有的。就是没有被 observe 的 index 都变成 0 了，然后最后再乘一个这个Sigma，把这个 Beta 都可以移到左边来， Beta transpose 就行。OK。这是结果，然后后面几个也是一样的，这第一个这是可能是d，就 k 等于一的时候啊。 k 等于 0 的时候就更简单了， general k 就它也是一样的，就相当于你这个 x 要乘一个d，乘一个什么矩阵b。再乘个d，再乘个矩阵b。再乘个d，就你这个有多少个d，跟你有多少个 k 差不多是一样。我see，OK。OK，所以 newmiss 就干了这么一件事情，它整个 new net 是什么样的？它整个 new net 就是你 x 乘d，乘一个w，再乘个 d W 一，这个是第一层，就相当于第一层的 new net。 W2 再乘个 d 就第二层的 new net。 i see W3。W4DW5D。
+
+Speaker 1 15:27
+就在学那个b，是吧？对。
+
+Speaker 2 15:29
+还行，OK。这这这一二三四五，这这五个东西是不一样的。就你要按照上面这个逻辑，它应该都是同一个，但这个，这这这它这个可能。
+
+Speaker 1 15:41
+让它足够flexible。
+
+Speaker 2 15:42
+对，可能学起来更轻松点，反正就是它全不一样的，而且你有几层就有多少个 wait metrics。
+
+Speaker 1 15:50
+而且中间还可以有那种什么dense，那种 full expand 那种。
+
+Speaker 2 15:54
+对，然后最后再加一个什么我不知道，反正最后再加一层到 final output。对。对，最后那一层可能是一个，就像这样的，也可能不是，我不记得了，但反正就是主要结构是这样的。OK。对吧？然后这就是你有MIS，然后你就是输入data，然后做grad， gradient descent SPD。
+
+Speaker 1 16:22
+对，对，OK。
+
+Speaker 2 16:25
+然后所以说这个。 new miss 这 can learn 这个 normal linear model 吗？
+
+Speaker 1 16:38
+对。
+
+Speaker 2 16:39
+linear model with missing data。
+
+Speaker 1 16:44
+OK。
+
+Speaker 2 16:46
+对吧？对。就你每次输入就是输入一个d，输入一个x。然后他就剩下的东西就是自动。
+
+Speaker 1 16:58
+OK，所以这个 b 我没有什么intuition，对，也没有啥intuition。
+
+Speaker 2 17:03
+就你 b 无所谓，就你如果知道真实的。这个 convert 是啥？你肯定是知道 b 是啥了，但你正常来你也不知道，你光看 data 你也不知道 convert 是啥。
+
+Speaker 1 17:16
+i see。
+
+Speaker 2 17:16
+你也不知道这个 b 到底是啥？所以说你就不知道。
+
+Speaker 1 17:21
+这没有很好的intuition，是吧？就好。
+
+Speaker 2 17:24
+所以这W1，W2，W3，这就是randomize， random initialize。初始化，然后你 SGD 它就 convert 了。对。就很简单嘛。
+
+Speaker 1 17:35
+对，OK，所以这里面哪些步骤是 depend on normal linear？
+
+Speaker 2 17:41
+就你整个这种 expression 就是要 no marine 才能有的。对。
+
+Speaker 1 17:45
+所以主要是这个。
+
+Speaker 2 17:46
+对，就你能这样写出来，他就是 normal linear 了。然后这个为什么可以？就这个可以，这个结构是完全可以，上面这结构嘛。所以说 new means 就可以 normal linear model 了。但对于这个。
+
+Speaker 1 18:11
+这个 position 是需要一些 theories 保证的，是吧？对呀。像你说的那个。
+
+Speaker 2 18:15
+就是，但是。现在就是要什么这个，比方说f。 non- linear，然后这个 x 的 distribution non- normal 这。有什么办法吗？
+
+Speaker 1 18:39
+那OK， non- normal 本身 non- normal Linear 有很好的 extension method 吗？就是从 normal Linear to non- normal Linear。
+
+Speaker 2 18:52
+没有啥。就宇康，就比如可以跟你讲这个，就是说如果说。说是OK，是easy，第一种情况， easy 的情况。第一种情况是啥？ x normal f 是个什么？ low degree，polynomial？类似的事情也可以做。解决了。那我还行。就这个事情是怎么解决的？就是说大概来说。有点复杂，就是写不好写，但是就是如果 x 是 normal 的， f 是个 low 低个prominor。
+
+Speaker 2 19:45
+上面这些计算都可以重复。就只是说你线性模型计算最简单。你什么二次的？ f 是这个，什么是个二次？这个多项式它也是可以算的，三次多项式也是可以算的，四次、五次都可以算，只是说需要算而已。OK。然后你这个算的过程可能也不是你，也不是说你用手算，你只是说。你看他大概长什么样，你就写个长得差不多的 neural network，他自己去学就行了。
+
+Speaker 1 20:15
+所以他所有的就是这个。
+
+Speaker 2 20:23
+就我就跟你讲，就是 x 是 normal 的， f 是这个就直接就是 solve 了，基本上约等于 solve 了。
+
+Speaker 1 20:30
+它可以 share 同一个 neural network 去解决所有的 low degree polynomial 还是说不同的有。
+
+Speaker 2 20:36
+就是你肯定每次一换这个 f 你就得重新训练一个嘛？对吧？基本上吧。
+
+Speaker 1 20:46
+没有更一致的方法吗？
+
+Speaker 2 20:49
+有，但是也没啥意义，就反正你想弄肯定可以弄。
+
+Speaker 1 20:54
+但我们的 target 应该是有一个 coherent 的 neural net 能够处理。
+
+Speaker 2 21:03
+就是啥？就是如果说你 x 地区是固定的。然后 f 变。然后你问有没有 coherent 办法？可以有，就可能就比如说你coherent，就是说你这 neural net 前几层都一样，就最后一层不一样。比较 coherent 也可以做到。但 it doesn' t matter。就你现实生活中你这个 f 不会变的，你就是一个f，有固定一个f，你就学这个 f 就行了。
+
+Speaker 1 21:32
+对，但这个 f 它本身长啥样，我们现实中是不知道的，对吧？
+
+Speaker 2 21:35
+对，就你就直接 SGD 跑出来，是什么就是什么嘛？OK。对吧？
+
+Speaker 1 21:40
+OK，但。
+
+Speaker 2 21:42
+就你 Pre Pre 你这个 l to error 小就行了， MSE 小就行了，你不对吧？
+
+Speaker 1 21:49
+OK，可以，我就担心他 decomposition 会有不同的format，然后。
+
+Speaker 2 21:55
+就可他个 format 是挺复杂的，但是你随便抽象一下就说这一坨 metric 就叫W1。这一坨 metric 叫W2。这就变成一个非常简单的 JSON nice 的格式了。
+
+Speaker 1 22:06
+对对对，可以，然后他是可以 share by all the。 low degree flow mail，然后 share 一个这个抽象的格式的。
+
+Speaker 2 22:12
+不不，就不要想 share 多个 low degree flow mail 就无所谓，这个事情无所谓了就不重要，不是一个重要的问题。OK。就你不会说，你不会在现实任务中它就是预测的，就是一个目标。它不会说你有。三四个不同目标，是三四个不同的楼底。不会的，就没有这种情，就可能有这种情况，但很少，无所谓。而且就如果真想这么做也很简单，你就 feed 几多、 feed 几次就行了，你也没必要做什么算法上的什么创新什么啊，有 coherence 就没有意义。
+
+Speaker 1 22:50
+我以为每个类型我们都要单独圈一个，然后那个。
+
+Speaker 2 22:55
+不用。那类型的？不就是你，你就是可以这个 measure 叫W1，就可能好几个不同的类型里面。
+
+Speaker 1 23:04
+那这个位置都叫W1。
+
+Speaker 2 23:05
+对，就对，就他。他。
+
+Speaker 1 23:10
+具体里面长啥样？
+
+Speaker 2 23:11
+具体是不一样的，但是你可以把他们都叫W1。对，这个。他就一样了。对对，这个我刚才意思。所以这无所谓。对，可以。就是无所谓。那没问题。OK。OK。就这个就直接consider， solve consider 就解决了。然后剩下的情况就都是没有solve。OK。但就可以试，这个就试了。然后剩下情况都是剩下的。现在都unsolved，可以试。
+
+Speaker 1 23:49
+就是我们先基于第一个做出来一个，然后看我们 test 其他不同的新的。
+
+Speaker 2 23:55
+OK，什么？可以，不要逼了，给你讲可以试什么？一个这个就一OK，这个名字可以改，这个就叫个什么 newmils plus，就ok，你原本这个 newline 是这样的，这个。 d 乘以一个x。诶 dx 乘以个W1，然后你 activate 一下，再乘一个W2。
+
+Speaker 2 24:34
+再乘一个d。
+
+Speaker 1 24:37
+OK。
+
+Speaker 2 24:38
+这是一层。然后你就照着这么延续下去就行了。给个 n 层的那种来。对吧？这个是这里，原本是这是一层，现在你就是这是一层，然后后面几层是一样的规律吗？对。OK。这第一种就这个，这是第一种，就是说相当于你加了一个，随便加了一个这个 Sigma 在这。就 activation function，它就变 long linear 了。然后就888。
+
+Speaker 1 25:16
+OK。
+
+Speaker 2 25:19
+这个意义在于就是说ok，你这里可以有什么 residual connect？这里有很多可以试的东西，然后你的 activation 放在哪儿？ vision 放在哪里比较好？比较好，就这个，这都是试的，试出来的。就比方说你这里我可以这么写，我也可以，就是什么另外一种方法DXWE。
+
+Speaker 2 25:57
+activation。我 d 一下，然后我再WR，对吧？就你这个这些，这个 operation 的顺序可以稍微调，调下就可能会有不同效果，然后就包括这里，它就是最简单的multiplication。但它可能也会可以再加一个 BIAS 项。就也会有不同的效果，这都可以试。好。你当时这就是试了试。是的，可以的。就这个意思，就是不同点，就是这个实际上就跟那个 nuance 差不多。但你就是加了几个 activation 在里面。它就可能会不一样。好。也可能会，也可就有可能就是说加了之后你可以有某种 universal approximation。OK。对吧？OK。就你可能所有的这种，不管你是不是normal，不管你是不是linear，都可以。OK。有可能。OK。也有可能不是。
+
+Speaker 1 27:04
+好。
+
+Speaker 2 27:07
+就这个也是最简单可以试的，就他有没有什么，他到底行不行是立马试了就知道。OK。他如果行就可以给他编一套理论，他为什么行，他说不行就再接着试，就反正就都试试他到底行不行。
+
+Speaker 1 27:23
+好好好，这个可以试，这个没问题。
+
+Speaker 2 27:27
+然后这个试其实，嗯，没有你想的简单，就是你，你要是什么我不知道，就是你可以看看 new miss paper 里，但他那个里面肯定是不够的，因为他那里面就只设了 normal Linear model。对对对。你可能得找几个不一样的model。你可以是 synthetic data。然后还有就是有个东西叫做 missingness pattern。你知道是啥吧？你说 MCAR 之类的东西吗？对，就是 Mcar Mar MNAR。
+
+Speaker 1 28:06
+这个你是要搞个covaried，confounding， confounder 加进去吗？在生成数据的时候还是要怎么搞？
+
+Speaker 2 28:13
+对， MNAR 随便生成，这是太简单了。
+
+Speaker 1 28:16
+我知道，就是。
+
+Speaker 2 28:16
+反正你就搞，就 MCR Mar，就这些东西就不要设置，就是可以试，就你要做实验。这个要做一些实验。 MA2 要做实验， M N a 二也要做实验。OK。我觉得这大概率就像这种方法 M N a 二也一样可以搞。就无所谓，就他可能不太在乎你是不是 M N a 二的，因为就是 M N a 二，它这个在你的这个，首先在你的这个 missing value 处理它是有问题的，对吧？
+
+Speaker 1 28:54
+对。
+
+Speaker 2 28:54
+就它一般来说这种情况你就呆了，你啥都做不了。是。但这个是对于 estimation 来说的。对于你，我们这种什么 prediction 的test。你 MA2 不影响prediction。
+
+Speaker 1 29:10
+不影响吗？
+
+Speaker 2 29:13
+你这就是一个，就是算这个expectation。这跟你 MA2 没有任何关系啊。OK。这实际上跟你 MA2 没有任何关系，它就是一个这样一个函数，你只要能 approximate 这个函数就行了。就是这么简单，它其实就 MA2 最大的，就比方说我给你一组数据，就一维的数据，就比方说这身高，然后我告诉这个是MA2，就是说所有一米七以上的人都去打仗了，都。所以说，然后现在给你这样的数据，让你去算平均身高，你是算不了的，对吧？对。因为你一米 7 上的人都没了嘛。你就算平均身高，肯定是错的嘛。对。但你就比方说这个身高的人有多重还是可以算的，就是y，就是这个身高有多重嘛。那我给你看到数据都是一米 7 以下的，或者说就是 missing 的。然后但他们的体重都是有的，那你看到这个人的身高，你预测他体重还是可以预测的，你是不知道平均身高是多少，但是你还是可以预测体重。就是说就你包括你看到一个是 missing 的，就身高是 missing 的，这个人去打仗去了，没了。对。就，但他体重如果是给出来了。那你依然是可以这个，根据数据来预测他这个体重的平均值应该是多少。
+
+Speaker 1 30:44
+对，但我们没有办法预测，比如说平均体重这个问题。就是因为我没办法。
+
+Speaker 2 30:48
+可以，就比方说你如果体重，这只要体重，这个没有 missing 就行了。
+
+Speaker 1 30:54
+那体重肯定上面那部分一米 7 以上全部也 missing 了嘛。
+
+Speaker 2 30:57
+就假设不是 missing 的。OK。对，就是这个的 prediction 的，就是说啥？就是说他永远是只有这个 x 是有 missing 的， y 是永远没有 missing 的。那就是永远可以算出来的。OK。就你这个 MA2 其实对于你 prediction 没有屌影响。OK。就你是对于 x 的统计量，你是不能确定的。但你给定了 observe 的x，算 y 是多少？那就比方说我就是给你足够多的数据，你其实就是可以算出来的，这个是没有任何的这种，就是没有任何的这种什么什么就是不能 identifiable 的问题，unidentifiable，这是这么说吧？
+
+Speaker 1 31:45
+我不知道这个词在这对不对，但确实可以大概这么说。
+
+Speaker 2 31:49
+对，就他这，就这个任务，其实不在乎你的。 business pattern 是不是MVR？其实本质上来说 Mar 不是一个问题。那行。对。OK。就这个，是，这，这个事情很多人是搞不明白的。确实。其实对于这个问题来说， Mar 无所屌谓的，就它应该是无所屌谓的。其实就是它应该就是无所屌谓的。对，就我如果说我，比方说我有一百种，一万种 business pattern。但我每一种 business pattern 我都有1亿的数据。那我肯定可以预测的了，肯定无所谓，我肯定是可以算的，对吧？
+
+Speaker 1 32:42
+OK，OK，但这个我们在 experiment 的时候应该要怎么设计这几种不同的 missing pattern data generation process？
+
+Speaker 2 32:54
+我这个是你，你自己思考，你，你可以解决问题啊。
+
+Speaker 1 32:57
+对，跟刚才就是搞方法论的，没问题。
+
+Speaker 2 33:00
+就，或者你就让 chatgpt 告诉你。那没问题，这个我会。而且最简单的就是这种什么。说什么censorship。对对对。就什么？你这个值太大了，我就要 missing 的概率要高一点，是。对对对，是。etc。是。anyway，就反正先试试最简单的实验吧。既然实验，然后可能nonnormal。你生成一个 nonnormal distribution，你会生成吗？会。就反正你可能几个 normal 加一块儿嘛。就是有一定的概率是这个normal，一定这个，这，这就是一个简单normal，然后就 best case，就是这个实在太屌了，它可以nonnormal。
+
+Speaker 1 34:00
+nonlinear。
+
+Speaker 2 34:01
+nonlinear。而且还是 m a r，对吧？
+
+Speaker 2 34:10
+a best case scenario。OK。然后还有别的可以试的。我就不跟你讲了，我跟今天跟蔡继军聊了一下。他，他是他，反正我觉得他有点鬼扯。但反正你可以看看他答案，你就大概知道他是怎么想的。OK。他觉得有一个人，我可以把这聊天记录发给你。可以。这个怎么发给你？
+
+Speaker 1 34:39
+你share，OK。
+
+Speaker 2 34:51
+好。好，当个事吧。
